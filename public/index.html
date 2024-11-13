@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=  , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+   
+
+
+</head>
+
+<body>
+
+    <!-- <div>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="signup">Sign Up</button>
+        <button id="login">Log In</button>
+    </div>
+
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDAUdJMwX0UNBj1Xuv0HDzm0uwmicp8FoQ",
+            authDomain: "quiz-app-42e5e.firebaseapp.com",
+            projectId: "quiz-app-42e5e",
+            storageBucket: "quiz-app-42e5e.firebasestorage.app",
+            messagingSenderId: "925248547069",
+            appId: "1:925248547069:web:f6f20d73b2bfecc30b7694",
+            measurementId: "G-J9JZ2M8M53"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const db = firebase.firestore();
+
+        // Sign Up
+        document.getElementById('signup').addEventListener('click', () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.createUser WithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    console.log('User  signed up:', user);
+                    // Optionally, store user info in Firestore
+                    return db.collection('users').doc(user.uid).set({
+                        email: user.email
+                    });
+                })
+                .then(() => {
+                    alert('User  signed up and info saved to Firestore!');
+                })
+                .catch((error) => {
+                    console.error('Error signing up:', error);
+                    alert(error.message);
+                });
+        });
+
+        // Log In
+        document.getElementById('login').addEventListener('click', () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    console.log('User  logged in:', user);
+                    document.getElementById('user-email').textContent = `Logged in as: ${user.email}`;
+                    document.getElementById('user-info').style.display = 'block';
+                })
+                .catch((error) => {
+                    console.error('Error logging in:', error);
+                    alert(error.message);
+                });
+        });
+
+        // Log Out
+        document.getElementById('logout').addEventListener('click', () => {
+            auth.signOut().then(() => {
+                console.log('User  logged out');
+                document.getElementById('user-info').style.display = 'none';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+            }).catch((error) => {
+                console.error('Error logging out:', error);
+            });
+        });
+
+        // Monitor Auth State
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                document.getElementById('user-email').textContent = `Logged in as: ${user.email}`;
+                document.getElementById('user-info').style.display = 'block';
+            } else {
+                // No user is signed in
+                document.getElementById('user-info').style.display = 'none';
+            }
+        });
+
+
+
+
+
+    </script> -->
+
+
+
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <h2 id="question">Question Text</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="a_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="b_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="c_text">Answer</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="d_text">Answer</label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">Submit</button>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
